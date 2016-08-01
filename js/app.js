@@ -1,12 +1,14 @@
 'use strict';
 
+//Array of all images... pushed to from catalogItem
 var imageArray = [];
 
-var sectionDisplay = document.getElementById('imageDisplay');
+//Event Listener Global
+var userClick = document.getElementById('imageDisplay');
 
-var leftImg = getElementById('left');
-var rightImg = getElementById('right');
-var centerImg = getElementById('center');
+var leftImg = document.getElementById('left');
+var centerImg = document.getElementById('center');
+var rightImg = document.getElementById('right');
 
 function catalogItem (imageName, filePath) {
   this.imageName = imageName;
@@ -50,5 +52,5 @@ while randomindex2 === randomindex1) {
 
 
 leftImg.src = catalogArray[randomindex1].filePath;
-rightImg.src = catalogArray[randomindex2].filePath;
 centerImg.src = catalogArray[randomindex3].filePath;
+rightImg.src = catalogArray[randomindex2].filePath;
