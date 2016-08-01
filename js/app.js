@@ -2,7 +2,7 @@
 
 var imageArray = [];
 
-var imgDisplay = getElementById('imageDisplay');
+var sectionDisplay = document.getElementById('imageDisplay');
 
 var leftImg = getElementById('left');
 var rightImg = getElementById('right');
@@ -43,6 +43,11 @@ new catalogItem('Wine-Glass', 'img/wine-glass.jpg');
 var randomindex1 = [Math.floor(Math.random() * catalogArray.length);
 var randomindex2 = [Math.floor(Math.random() * catalogArray.length);
 var randomindex3 = [Math.floor(Math.random() * catalogArray.length);
+
+while randomindex2 === randomindex1) {
+  randomindex2 = [Math.floor(Math.random() * catalogArray.length);
+}
+
 
 leftImg.src = catalogArray[randomindex1].filePath;
 rightImg.src = catalogArray[randomindex2].filePath;
