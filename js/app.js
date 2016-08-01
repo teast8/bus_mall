@@ -2,6 +2,12 @@
 
 var imageArray = [];
 
+var imgDisplay = getElementById('imageDisplay');
+
+var leftImg = getElementById('left');
+var rightImg = getElementById('right');
+var centerImg = getElementById('center');
+
 function catalogItem (imageName, filePath) {
   this.imageName = imageName;
   this.filePath = filePath;
@@ -17,7 +23,7 @@ new catalogItem('Luggage Bag', 'img/bag.jpg');
 new catalogItem('Banana Cuts', 'img/banana.jpg');
 new catalogItem('Bathroom Utility', 'img/bathroom.jpg');
 new catalogItem('Open Boots', 'img/boots.jpg');
-new catalogItem('Breakfas Maker', 'img/breakfast img/breakfast.jpg');
+new catalogItem('Breakfast Maker', 'img/breakfast img/breakfast.jpg');
 new catalogItem('Banana Cuts', 'img/bubblegum.jpg');
 new catalogItem('Red Chair', 'img/chair.jpg');
 new catalogItem('Monster', 'img/cthulu.jpg');
@@ -32,3 +38,12 @@ new catalogItem('Unicorn Meat', 'img/unicorn.jpg');
 new catalogItem('Usb Tenicle', 'img/usb.jpg');
 new catalogItem('Water Can', 'img/water-can.jpg');
 new catalogItem('Wine-Glass', 'img/wine-glass.jpg');
+
+
+var randomindex1 = [Math.floor(Math.random() * catalogArray.length);
+var randomindex2 = [Math.floor(Math.random() * catalogArray.length);
+var randomindex3 = [Math.floor(Math.random() * catalogArray.length);
+
+leftImg.src = catalogArray[randomindex1].filePath;
+rightImg.src = catalogArray[randomindex2].filePath;
+centerImg.src = catalogArray[randomindex3].filePath;
