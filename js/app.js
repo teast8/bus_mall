@@ -51,7 +51,8 @@ function displayImages() {
   }
 
   while (randomindex3 === randomindex2 || randomindex3 === randomindex1) {
-    randomindex3 = Math.floor(Math.random() *     (imageArray.length));
+    randomindex3 = Math.floor(Math.random() *
+    (imageArray.length));
   }
 
   leftImg.src = imageArray[randomindex1].filePath;
@@ -66,8 +67,25 @@ function handleUserClick(event) {
 
   alert('Click is Working');
 
-  displayImages();
+  if (event.target.id === 'left') {
+    imageArray[randomIndex1].tallyClicked += 1;
+  }
 
+  else if (event.target.id === 'center') {
+    imageArray[randomIndex2].tallyClicked += 1;
+  }
+
+  else if (event.target.id === 'right') {
+    imageArray[randomIndex3].tallyClicked += 1;
+  }
+  else {
+    alert('Pick a product!');
+  }
+  console.log('I clicked' + event.target.id);
+
+  //Re-calculates randomIndex variables
+
+  displayImages();
 }
 
 displayImages();
