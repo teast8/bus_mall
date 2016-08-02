@@ -1,13 +1,32 @@
 img {
-  height: 300px;
+  height: 200px;
   outline: dotted 1px orange;
-  
+  padding: 10px 0;
+
 }
 h1 {
   text-align: center;
   outline: dotted 1px orange;
 }
 section {
+  float: left;
   border-style: solid;
   outline: dotted 1px orange;
+  padding: 20px;
+}
+/*img. {
+  height: 250px;
+  width: 200px;
+}*/
+#left {
+  float: left;
+  padding: 20px;
+}
+#center {
+  float: left;
+  padding: 20px;
+}
+#right {
+  float: left;
+  padding: 20px;
 }
