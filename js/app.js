@@ -10,6 +10,8 @@ var leftImg = document.getElementById('left');
 var centerImg = document.getElementById('center');
 var rightImg = document.getElementById('right');
 
+var canvas = document.getElementById('#');
+
 function catalogItem (imageName, filePath) {
   this.imageName = imageName;
   this.filePath = filePath;
@@ -40,6 +42,7 @@ new catalogItem('Usb Tenicle', 'img/usb.jpg');
 new catalogItem('Water Can', 'img/water-can.jpg');
 new catalogItem('Wine-Glass', 'img/wine-glass.jpg');
 
+//LOADING IMAGES TO THE PAGE FUNCTION!!!!
 function displayImages() {
 
   var randomindex1 = Math.floor(Math.random() * imageArray.length);
@@ -61,13 +64,30 @@ function displayImages() {
   rightImg.src = imageArray[randomindex3].filePath;
   imageArray[randomindex3].tallyDisplayed += 1;
 }
+
 function handleUserClick(event) {
   event.preventDefault();
 
   alert('Click is Working');
+  if (event.target.id === 'left') {
+    imageArray[randomIndex1].tallyClicked += 1;
+  }
+
+  else if (event.target.id === 'center') {
+    imageArray[randomIndex2].tallyClicked += 1;
+  }
+
+  else if (event.target.id === 'right') {
+    imageArray[randomIndex3].tallyClicked += 1;
+  }
+  else {
+    alert('Pick a product!');
+  }
+  console.log('I clicked' + event.target.id);
+
+    //Re-calculates randomIndex variables
 
   displayImages();
-
 }
 
 displayImages();

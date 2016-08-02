@@ -1,3 +1,13 @@
 img {
   height: 300px;
+  outline: dotted 1px orange;
+  
+}
+h1 {
+  text-align: center;
+  outline: dotted 1px orange;
+}
+section {
+  border-style: solid;
+  outline: dotted 1px orange;
 }
