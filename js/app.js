@@ -51,7 +51,7 @@ function displayImages() {
   }
 
   while (randomindex3 === randomindex2 || randomindex3 === randomindex1) {
-    randomindex3 = Math.floor(Math.random() *     (imageArray.length));
+    randomindex3 = Math.floor(Math.random() * (imageArray.length));
   }
 
   leftImg.src = imageArray[randomindex1].filePath;
