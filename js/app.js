@@ -40,23 +40,36 @@ new catalogItem('Usb Tenicle', 'img/usb.jpg');
 new catalogItem('Water Can', 'img/water-can.jpg');
 new catalogItem('Wine-Glass', 'img/wine-glass.jpg');
 
-function loadImages() {
+function displayImages() {
 
   var randomindex1 = Math.floor(Math.random() * imageArray.length);
   var randomindex2 = Math.floor(Math.random() * imageArray.length);
   var randomindex3 = Math.floor(Math.random() * imageArray.length);
 
+  while (randomindex2 === randomindex1) {
+    randomindex2 = Math.floor(Math.random() * imageArray.length);
+  }
+
+  while (randomindex3 === randomindex2 || randomindex3 === randomindex1) {
+    randomindex3 = Math.floor(Math.random() *     (imageArray.length));
+  }
+
+  leftImg.src = imageArray[randomindex1].filePath;
+  imageArray[randomindex1].tallyDisplayed += 1;
+  centerImg.src = imageArray[randomindex2].filePath;
+  imageArray[randomindex2].tallyDisplayed += 1;
+  rightImg.src = imageArray[randomindex3].filePath;
+  imageArray[randomindex3].tallyDisplayed += 1;
 }
- while (randomindex2 === randomindex1) {
-   randomindex2 = Math.floor(Math.random() * imageArray.length)
-}
-while (randomindex3 === randomindex2 || randomindex3 === randomindex1) {
-  randomindex3 = Math.floor(Math.random() * imageArray.length));
+function handleUserClick(event) {
+  event.preventDefault();
+
+  alert('Click is Working');
+
+  displayImages();
+
 }
 
-
-leftImg.src = imageArray[randomindex1].filePath;
-centerImg.src = imageArray[randomindex3].filePath;
-rightImg.src = imageArray[randomindex2].filePath;
+displayImages();
 
 userClick.addEventListener('click', handleUserClick);
