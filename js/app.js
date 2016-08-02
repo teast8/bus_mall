@@ -48,9 +48,9 @@ function loadImages() {
 
 }
  while (randomindex2 === randomindex1) {
-   randomindex2 = [Math.floor(Math.random() * imageArray.length)
+   randomindex2 = Math.floor(Math.random() * imageArray.length)
 }
-while (randomindex3 === randomindex2) || (randomindex3 === randomindex1) {
+while (randomindex3 === randomindex2 || randomindex3 === randomindex1) {
   randomindex3 = Math.floor(Math.random() * imageArray.length));
 }
 
@@ -59,4 +59,4 @@ leftImg.src = imageArray[randomindex1].filePath;
 centerImg.src = imageArray[randomindex3].filePath;
 rightImg.src = imageArray[randomindex2].filePath;
 
-userClick.addEventListener
+userClick.addEventListener('click', handleUserClick);
