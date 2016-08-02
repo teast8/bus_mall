@@ -2,6 +2,10 @@
 
 //Array of all images... pushed to from catalogItem
 var imageArray = [];
+var tallyClickedArray = [];
+var imageNameArray = [];
+var totalclicks = 0;
+var randomindex1, randomindex2, randomindex3;
 
 //Event Listener Global
 var userClick = document.getElementById('imageDisplay');
@@ -9,6 +13,9 @@ var userClick = document.getElementById('imageDisplay');
 var leftImg = document.getElementById('left');
 var centerImg = document.getElementById('center');
 var rightImg = document.getElementById('right');
+var resultsButton = document.getElementById('results');
+
+//var canvas = document.getElementById('#');
 
 function catalogItem (imageName, filePath) {
   this.imageName = imageName;
@@ -40,54 +47,78 @@ new catalogItem('Usb Tenicle', 'img/usb.jpg');
 new catalogItem('Water Can', 'img/water-can.jpg');
 new catalogItem('Wine-Glass', 'img/wine-glass.jpg');
 
+//LOADING IMAGES TO THE PAGE FUNCTION!!!!
 function displayImages() {
-
-  var randomindex1 = Math.floor(Math.random() * imageArray.length);
-  var randomindex2 = Math.floor(Math.random() * imageArray.length);
-  var randomindex3 = Math.floor(Math.random() * imageArray.length);
+//GENERATES THREE RANDOM NUMBERS
+  randomindex1 = Math.floor(Math.random() * imageArray.length);
+  randomindex2 = Math.floor(Math.random() * imageArray.length);
+  randomindex3 = Math.floor(Math.random() * imageArray.length);
 
   while (randomindex2 === randomindex1) {
     randomindex2 = Math.floor(Math.random() * imageArray.length);
   }
 
   while (randomindex3 === randomindex2 || randomindex3 === randomindex1) {
-    randomindex3 = Math.floor(Math.random() *
-    (imageArray.length));
+    randomindex3 = Math.floor(Math.random() * (imageArray.length));
   }
-
   leftImg.src = imageArray[randomindex1].filePath;
+  leftImg.alt = imageArray[randomindex1].imageName;
   imageArray[randomindex1].tallyDisplayed += 1;
   centerImg.src = imageArray[randomindex2].filePath;
+  centerImg.alt = imageArray[randomindex1].imageName;
   imageArray[randomindex2].tallyDisplayed += 1;
   rightImg.src = imageArray[randomindex3].filePath;
+  rightImg.alt = imageArray[randomindex1].imageName;
   imageArray[randomindex3].tallyDisplayed += 1;
 }
+
+//TELLS US WHICH DOM ELEMENT WAS CLICKED
 function handleUserClick(event) {
   event.preventDefault();
-
-  alert('Click is Working');
+  totalclicks += 1;
+  //alert('Click is Working');
 
   if (event.target.id === 'left') {
-    imageArray[randomIndex1].tallyClicked += 1;
+    imageArray[randomindex1].tallyClicked += 1;
+    console.log('I clicked' + imageArray[randomindex1].imageName);
   }
 
   else if (event.target.id === 'center') {
-    imageArray[randomIndex2].tallyClicked += 1;
+    imageArray[randomindex2].tallyClicked += 1;
+    console.log('I clicked' + imageArray[randomindex2].imageName);
   }
 
   else if (event.target.id === 'right') {
-    imageArray[randomIndex3].tallyClicked += 1;
+    imageArray[randomindex3].tallyClicked += 1;
+    console.log('I clicked' + imageArray[randomindex3].imageName);
   }
   else {
     alert('Pick a product!');
   }
-  console.log('I clicked' + event.target.id);
+
+  if (totalclicks > 4) {
+    userClick.removeEventListener('click', handleUserClick);
+    collectTotalClicks();
+    resultsButton.hidden = false;
+    console.log('max number of clicks reached');
+  }
 
   //Re-calculates randomIndex variables
-
   displayImages();
+}
+
+function collectTotalClicks() {
+  for (var i = 0; i < imageArray.length; i++) {
+    tallyClickedArray.push(imageArray[i].tallyClicked);
+    imageNameArray.push(imageArray[i].imageName);
+  }
+};
+
+function handleResultsButton() {
+  alert('this is when you draw the chart');
 }
 
 displayImages();
 
 userClick.addEventListener('click', handleUserClick);
+resultsButton.addEventListener('click', handleResultsButton);
