@@ -40,15 +40,23 @@ new catalogItem('Usb Tenicle', 'img/usb.jpg');
 new catalogItem('Water Can', 'img/water-can.jpg');
 new catalogItem('Wine-Glass', 'img/wine-glass.jpg');
 
-
-// while (randomindex2 === randomindex1) {
-//   randomindex2 = [Math.floor(Math.random() * imageArray.length)
-//   }
+function loadImages() {
 
   var randomindex1 = Math.floor(Math.random() * imageArray.length);
   var randomindex2 = Math.floor(Math.random() * imageArray.length);
   var randomindex3 = Math.floor(Math.random() * imageArray.length);
 
+}
+ while (randomindex2 === randomindex1) {
+   randomindex2 = [Math.floor(Math.random() * imageArray.length)
+}
+while (randomindex3 === randomindex2) || (randomindex3 === randomindex1) {
+  randomindex3 = Math.floor(Math.random() * imageArray.length));
+}
+
+
 leftImg.src = imageArray[randomindex1].filePath;
 centerImg.src = imageArray[randomindex3].filePath;
 rightImg.src = imageArray[randomindex2].filePath;
+
+userClick.addEventListener
