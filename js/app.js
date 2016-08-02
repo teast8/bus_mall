@@ -61,7 +61,6 @@ function displayImages() {
   while (randomindex3 === randomindex2 || randomindex3 === randomindex1) {
     randomindex3 = Math.floor(Math.random() * (imageArray.length));
   }
-
   leftImg.src = imageArray[randomindex1].filePath;
   leftImg.alt = imageArray[randomindex1].imageName;
   imageArray[randomindex1].tallyDisplayed += 1;
@@ -104,8 +103,7 @@ function handleUserClick(event) {
     console.log('max number of clicks reached');
   }
 
-    //Re-calculates randomIndex variables
-
+  //Re-calculates randomIndex variables
   displayImages();
 }
 
