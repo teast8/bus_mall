@@ -5,7 +5,7 @@ var imageArray = [];
 var tallyClickedArray = [];
 var imageNameArray = [];
 var totalclicks = 0;
-var randomindex1, randomindex2, randomindex3;
+var randomindex1, randomindex2, randomindex3, myBarChart;
 
 //Event Listener Global
 var userClick = document.getElementById('imageDisplay');
@@ -14,7 +14,7 @@ var leftImg = document.getElementById('left');
 var centerImg = document.getElementById('center');
 var rightImg = document.getElementById('right');
 var resultsButton = document.getElementById('results');
-
+var canvas = document.getElementById('chart');
 //var canvas = document.getElementById('#');
 
 function catalogItem (imageName, filePath) {
@@ -96,7 +96,7 @@ function handleUserClick(event) {
     alert('Pick a product!');
   }
 
-  if (totalclicks > 4) {
+  if (totalclicks > 24) {
     userClick.removeEventListener('click', handleUserClick);
     collectTotalClicks();
     resultsButton.hidden = false;
@@ -115,10 +115,43 @@ function collectTotalClicks() {
 };
 
 function handleResultsButton() {
-  alert('this is when you draw the chart');
+  drawChart();
+  // alert('this is when you draw the chart');
 }
 
 displayImages();
 
 userClick.addEventListener('click', handleUserClick);
 resultsButton.addEventListener('click', handleResultsButton);
+
+var data = {
+  labels: imageNameArray, // titles array we declared earlier
+  datasets: [
+    {
+      label: 'My Bar Chart',
+      data: tallyClickedArray, // votes array we declared earlier
+      backgroundColor: [
+        'bisque',
+        'darkgray',
+        'burlywood',
+        'lightblue',
+        'navy'
+      ],
+      hoverBackgroundColor: [
+        'purple',
+        'purple',
+        'purple',
+        'purple',
+        'purple'
+      ],
+    }
+  ]
+};
+
+function drawChart() {
+  var ctx = canvas.getContext('2d');
+  myBarChart = new Chart(ctx,{
+    type: 'bar',
+    data: data,
+  });
+};
