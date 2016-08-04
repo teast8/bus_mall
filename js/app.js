@@ -101,6 +101,7 @@ function handleUserClick(event) {
     collectTotalClicks();
     resultsButton.hidden = false;
     console.log('max number of clicks reached');
+    imageArray = JSON.parse(localStorage.userResults);
   }
 
   //Re-calculates randomIndex variables
